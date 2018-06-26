@@ -1,2 +1,0 @@
-class VulnerabilitiesController < ApplicationController
-end

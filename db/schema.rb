@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_130440) do
+ActiveRecord::Schema.define(version: 2018_06_26_214921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carteiras", force: :cascade do |t|
+    t.string "data"
+    t.string "total"
+    t.string "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carteiras_on_user_id"
+  end
+
+  create_table "seguros", force: :cascade do |t|
+    t.string "tipo"
+    t.string "valor"
+    t.string "data_final"
+    t.string "periodicidade"
+    t.string "foto"
+    t.bigint "user_id"
+    t.bigint "carteira_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["carteira_id"], name: "index_seguros_on_carteira_id"
+    t.index ["user_id"], name: "index_seguros_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,9 +56,11 @@ ActiveRecord::Schema.define(version: 2018_06_19_130440) do
     t.string "lastname"
     t.string "company"
     t.string "profilepicture"
-    t.integer "nochecks"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "carteiras", "users"
+  add_foreign_key "seguros", "carteiras"
+  add_foreign_key "seguros", "users"
 end
