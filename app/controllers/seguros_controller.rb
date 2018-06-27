@@ -1,5 +1,5 @@
 class SeguroController < ApplicationController
-  before_action :set_seguro, only: [:show, :edit, :update, :destroy]
+  before_action :set_seguroga , only: [:show, :edit, :update, :destroy]
   def index
     @seguros = current_user.seguros
   end
@@ -20,7 +20,6 @@ class SeguroController < ApplicationController
   end
 
   def show
-    @seguro =
   end
 
   def edit
@@ -35,6 +34,8 @@ class SeguroController < ApplicationController
   end
 
   def destroy
+    @seguro.destroy
+    redirect_to root_path
   end
 
   private
