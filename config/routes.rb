@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-
   devise_for :users, controllers: { registrations: "registrations" }
 
   root to: 'pages#home'
 
-  resources :carteiras do
-    resources :seguros
-  end
+  resources :carteira, only: [:show, :edit, :update]
+  resources :seguros
 
 end

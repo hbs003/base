@@ -18,13 +18,15 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
-#Gems added by team Ceziam
+#Gems added
 gem 'crack', '~> 0.4.3'
 gem 'json', '~> 1.8', '>= 1.8.3'
 gem 'net-ssh', '~> 3.2'
 gem 'net-scp', '~> 1.2', '>= 1.2.1'
 gem 'bourbon'
 gem 'jquery-rails', '~> 4.3.3'
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
