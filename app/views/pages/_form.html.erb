@@ -1,25 +1,49 @@
-<%= form_for(@seguro) do |f| %>
-<div class="form-group">
-  <p>Preencha os campos abaixo com o total por tipo de seguro:</p>
-  <%= f.label :tipo %>
-  <p>Tipo:</p><%= f.select :tipo, options_for_select(["Vida", "Saúde", "Automóveis", "Saúde", "Transporte", "Facultativo", "Outros"]), prompt: 'Selecione uma opção' %>
+<div class="container text-center">
+  <%= form_for(@seguro) do |f| %>
+  <div class="form-login2">
+    <h2>CADASTRE SEU SEGURO</h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="form-group ">
+          <%= f.label :tipo %>
+          <p>Tipo:</p><%= f.select :tipo, options_for_select(["Vida", "Saúde", "Automóveis", "Saúde", "Transporte", "Facultativo", "Outros"]), prompt: 'Selecione uma opção' %>
+        </div>
+      </div>
+    </div>
+  <!-- end of name row -->
+    <div class="row">
+     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+       <div class="form-group">
+          <%= f.label :valor %>
+          <p>Valor:</p><%= f.text_field :valor, class: 'form-control' %>
+       </div>
+      </div>
+    </div>
+  <!-- end of brand row -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="form-group">
+          <%= f.label :data_final %>
+          <p>Data Final:</p><%= f.text_field :data_final, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+  <!-- end of sku row -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div class="form-group">
+          <%= f.label :periodicidade %>
+          <p>Periodicidade:</p><%= f.select :tipo, options_for_select(["Anual", "Mensal", "Quinzenal","Outros"]), prompt: 'Selecione uma opção' %>
+        </div>
+      </div>
+    </div>
+  <!-- end of photo row -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <%= f.submit "SALVAR SEGURO", class: 'submit-button'%>
+        <% end %>
+      </div>
+    </div>
+  <!-- end of submit button -->
+  </div> <!-- end of form-login2 class -->
 </div>
-
-<div class="form-group">
-  <%= f.label :valor %>
-  <p>Valor:</p><%= f.text_field :valor, class: 'form-control' %>
-</div>
-
-<div class="form-group">
-  <%= f.label :data_final %>
-  <p>Data Final:</p><%= f.text_field :data_final, class: 'form-control' %>
-</div>
-
-<div class="form-group">
-  <%= f.label :periodicidade %>
-  <p>Periodicidade:</p><%= f.select :tipo, options_for_select(["Anual", "Mensal", "Quinzenal","Outros"]), prompt: 'Selecione uma opção' %>
-</div>
-<%= f.submit class: 'btn btn-primary' %>
-<% end %>
-
-
