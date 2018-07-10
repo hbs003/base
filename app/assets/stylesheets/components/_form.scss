@@ -1,12 +1,15 @@
 .form-group {
   text-align: left;
   text-transform: capitalize;
+  text-color: black;
+
+}
+.input {
+background-color: black;
+color: gray;
+text-size:18px;
 }
 
-// name h2 of sign in/up centered
-.form-group h2 {
-  text-align: center;
-}
 
 // make recommandation for password visible
 .text-muted {
@@ -43,4 +46,8 @@ label {
 
 .submit-button a:hover {
   color: $light-gray;
+}
+
+.form-login2 {
+  padding-bottom: 30px;
 }

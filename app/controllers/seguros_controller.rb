@@ -1,5 +1,5 @@
 class SeguroController < ApplicationController
-  before_action :set_seguroga , only: [:show, :edit, :update, :destroy]
+  before_action :set_seguro , only: [:show, :edit, :update, :destroy]
   def index
     @seguros = current_user.seguros
   end
@@ -13,8 +13,10 @@ class SeguroController < ApplicationController
     @seguro = Seguro.new(seguro_params)
     @seguro.carteira = carteira.current_user
     if @seguro.save
+      flash[:success] = "Seu seguro foi criado"
       redirect_to seguro_path(@seguro)
     else
+      flash.now[:danger] = "Ocorreu um erro, não foi possível criar seu seguro."
       render :new
     end
   end
